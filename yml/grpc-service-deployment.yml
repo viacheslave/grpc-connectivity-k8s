@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: grpc-service
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: grpc-service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: grpc-service
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+      containers:
+        - name: grpc-service
+          image: viacheslave/grpcservice:latest
+          ports:
+            - containerPort: 80
+              name: http
+            - containerPort: 443
+              name: https
