@@ -7,10 +7,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["src/GrpcService/GrpcService.csproj", "src/GrpcService/"]
-RUN dotnet restore "src/GrpcService/GrpcService.csproj"
-COPY . .
-WORKDIR "/src/src/GrpcService"
+COPY /src .
+WORKDIR "/src/GrpcService"
 RUN dotnet build "GrpcService.csproj" -c Release -o /app/build
 
 FROM build AS publish
