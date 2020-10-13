@@ -1,8 +1,13 @@
 # Sample GRPC service and client for connectivity testing in Kubernetes
 
+## Purpose
+
+To test gRPC client-server connectivity in Kubernetes clusters.
+
 ## Functionality
 
-Built from Microsoft Greeter examples. 
+Built from Microsoft Greeter examples.
+.NET Core 3.1.
 
 ## Usage
 
